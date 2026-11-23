@@ -19,6 +19,8 @@ LINE = (
 def main() -> None:
     assert 1 <= len(LINE) <= 240, f"line is {len(LINE)} chars, must be 1-240"
     assert LINE.count(".") == 1 and LINE.endswith("."), "must be one sentence"
+    assert "  " not in LINE, "no double spaces in one clean sentence"
+    print(f"({len(LINE)} chars)")
     try:
         out = Path("/output/entry.txt")
         out.parent.mkdir(parents=True, exist_ok=True)
